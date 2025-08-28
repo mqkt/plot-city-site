@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plot City | Discordコミュニティ</title>
+  <meta name="description" content="ゲーム／クリエイティブ好きが集まるDiscordコミュニティ『Plot City』の公式サイト。今すぐ参加して、あなたの一言で街を動かそう。" />
+  <meta name="theme-color" content="#7B5BC7" />
+  <meta property="og:title" content="Plot City | Discordコミュニティ" />
+  <meta property="og:description" content="いま、Plot Cityに参加しよう。自由に語って、つながって、企画して。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta name="robots" content="index,follow" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#0f0f1b;
+      --bg2:#1b1c34;
+      --panel:#1f2040;
+      --text:#e9e9f3;
+      --muted:#b9b9d4;
+      --accent:#7B5BC7;
+      --accent-2:#A68CF3;
+      --pill:#2a2b57;
+      --success:#4cd964;
+      --danger:#ff5f56;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Noto Sans JP", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1400px 700px at 10% -10%, #221f41 0%, transparent 70%),
+                  radial-gradient(1200px 700px at 90% -20%, #2a2459 0%, transparent 70%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      line-height:1.7;
+      letter-spacing:.2px;
+    }
+    a{color:inherit}
+    .container{width:min(1120px, 92%); margin:0 auto}
+    header{
+      position:sticky; top:0; z-index:50;
+      background:rgba(15,15,27,.75); backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+    .logo{
+      width:36px; height:36px; border-radius:10px;
+      background: conic-gradient(from 210deg, var(--accent), var(--accent-2), #9a7bd0, var(--accent));
+      box-shadow: 0 6px 18px rgba(123,91,199,.45), inset 0 0 20px rgba(255,255,255,.2);
+    }
+    .brand h1{font-family:Poppins, system-ui; font-size:20px; margin:0; letter-spacing:.3px}
+    nav ul{display:flex; gap:18px; list-style:none; margin:0; padding:0;}
+    nav a{padding:8px 12px; border-radius:999px; text-decoration:none; color:var(--muted)}
+    nav a:hover{background:var(--pill); color:var(--text)}
+    .hero{
+      position:relative; overflow:hidden;
+      padding:72px 0 48px;
+      background: linear-gradient(180deg, rgba(123,91,199,.18), rgba(123,91,199,0) 60%);
+    }
+    .sparkles{
+      position:absolute; inset:0; pointer-events:none; opacity:.35;
+      background-image: radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,.8) 60%, transparent),
+                        radial-gradient(1.5px 1.5px at 80% 30%, rgba(255,255,255,.6) 60%, transparent),
+                        radial-gradient(2px 2px at 30% 70%, rgba(255,255,255,.5) 60%, transparent),
+                        radial-gradient(1.5px 1.5px at 60% 85%, rgba(255,255,255,.4) 60%, transparent);
+      animation: twinkle 6s linear infinite;
+    }
+    @keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.45}}
+    .hero .grid{
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:36px; align-items:center;
+    }
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); font-size:12px; color:var(--muted)}
+    .title{font-family:Poppins, system-ui; font-weight:800; letter-spacing:.5px; line-height:1.15; font-size: clamp(28px, 4vw, 44px); margin:14px 0 12px}
+    .subtitle{color:#d8d6ee; font-size:clamp(14px, 2vw, 18px); opacity:.95}
+    .cta{margin-top:20px; display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:14px 18px; border-radius:14px; border:1px solid transparent; text-decoration:none; font-weight:700;
+      box-shadow: var(--shadow);
+      transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+      cursor:pointer; user-select:none;
+    }
+    .btn-primary{
+      background:linear-gradient(180deg, var(--accent), var(--accent-2));
+      color:#fff;
+    }
+    .btn-outline{
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.02);
+      color: var(--text);
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .pill{font-size:12px; padding:6px 10px; border-radius:999px; background:var(--pill); color:var(--muted); display:inline-flex; align-items:center; gap:8px}
+    .section{padding:56px 0}
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .card{background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    .card h3{margin:4px 0 10px; font-size:18px}
+    .muted{color:var(--muted)}
+    .table{width:100%; border-collapse: collapse; background: rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); overflow:hidden}
+    .table th, .table td{padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.06); text-align:left}
+    .table th{font-size:13px; color:#cfd0e8; background: rgba(255,255,255,.03)}
+    details{background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:14px 16px; box-shadow:var(--shadow)}
+    details + details{margin-top:10px}
+    summary{cursor:pointer; font-weight:700}
+    .staff{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .staff .avatar{width:52px; height:52px; border-radius:50%; background: radial-gradient(circle at 30% 30%, #fff6, transparent), linear-gradient(135deg, #8f7ae6, #5a48a8); box-shadow:0 6px 18px rgba(123,91,199,.35)}
+    .staff .row{display:flex; gap:14px; align-items:flex-start; background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:16px}
+    .copybox{display:flex; gap:8px; align-items:center; background: rgba(255,255,255,.03); border:1px dashed rgba(255,255,255,.15); padding:10px 12px; border-radius:12px; width:100%; max-width:520px}
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:13px; color:#f0e9ff}
+    footer{padding:36px 0 56px; color:var(--muted); border-top:1px solid rgba(255,255,255,.06); background:linear-gradient(180deg, rgba(123,91,199,.08), transparent)}
+    .hint{font-size:12px; color:var(--muted)}
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero .grid{grid-template-columns: 1fr}
+      .cards{grid-template-columns:1fr; gap:14px}
+      .staff{grid-template-columns:1fr; gap:14px}
+      nav ul{display:none}
+      .nav{padding:12px 0}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Plot City Home">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Plot City</h1>
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#join">参加</a></li>
+          <li><a href="#channels">チャンネル</a></li>
+          <li><a href="#rules">ルール</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="sparkles" aria-hidden="true"></div>
+      <div class="container grid">
+        <div>
+          <span class="badge">COMMUNITY</span>
+          <h2 class="title">いま、Plot Cityに参加しよう。</h2>
+          <p class="subtitle">自由に語って、つながって、企画して。あなたの一言から、新しい“物語（プロット）”が動き出す。</p>
+          <div class="cta" id="join">
+            <a class="btn btn-primary" href="https://discord.gg/dywrBQWP" target="_blank" rel="noopener noreferrer" aria-label="Discordに参加（新しいタブで開く）">
+              <!-- Discord icon (inline SVG) -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.608 1.249a18.27 18.27 0 0 0-5.49 0 12.26 12.26 0 0 0-.617-1.249.077.077 0 0 0-.079-.037 19.736 19.736 0 0 0-4.885 1.515.07.07 0 0 0-.032.028C.533 9.045-.319 13.58.099 18.058a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.105c-.652-.247-1.27-.549-1.861-.892a.077.077 0 0 1-.008-.128c.125-.094.25-.192.369-.291a.074.074 0 0 1 .078-.01c3.91 1.782 8.145 1.782 12.002 0a.074.074 0 0 1 .079.009c.12.099.244.198.369.292a.077.077 0 0 1-.006.128 12.3 12.3 0 0 1-1.862.891.076.076 0 0 0-.041.106c.36.698.773 1.363 1.225 1.993a.078.078 0 0 0 .084.029 19.876 19.876 0 0 0 6.002-3.03.078.078 0 0 0 .03-.056c.5-5.177-.838-9.673-3.548-13.661a.061.061 0 0 0-.032-.029ZM8.02 15.33c-1.183 0-2.156-1.084-2.156-2.419 0-1.334.955-2.418 2.156-2.418 1.21 0 2.173 1.094 2.156 2.418 0 1.335-.955 2.42-2.156 2.42Zm7.975 0c-1.183 0-2.156-1.084-2.156-2.419 0-1.334.955-2.418 2.156-2.418 1.21 0 2.173 1.094 2.156 2.418 0 1.335-.946 2.42-2.156 2.42Z"/></svg>
+              Discordに参加する
+            </a>
+            <button class="btn btn-outline" id="copyBtn" aria-label="招待リンクをコピー">招待リンクをコピー</button>
+          </div>
+          <div class="copybox" style="margin-top:12px">
+            <code id="invite">https://discord.gg/dywrBQWP</code>
+            <span class="pill">有効招待</span>
+          </div>
+          <p class="hint">※ ウィジェットをページ内に表示したい場合は、Discordの「サーバー設定 → ウィジェット → 有効化」後、以下のコメント内コードを使って埋め込めます。</p>
+          <pre class="hint" style="white-space:pre-wrap; overflow:auto; background:rgba(0,0,0,.25); padding:10px; border-radius:8px"><code>&lt;!-- 公式ウィジェット（ServerIDを差し替え） --&gt;
+&lt;iframe src="https://discord.com/widget?id=YOUR_SERVER_ID&amp;theme=dark" width="100%" height="400" allowtransparency="true" frameborder="0"&gt;&lt;/iframe&gt;</code></pre>
+        </div>
+        <div>
+          <div class="card">
+            <div class="pill" aria-hidden="true">コミュニティの魅力</div>
+            <h3 style="margin-top:10px">つながる・広がる・つくりだす</h3>
+            <p class="muted">雑談から企画まで気軽に参加。制作物の発表やコラボ募集も歓迎！モデレーターが初参加をしっかりサポートします。</p>
+            <ul class="muted" style="padding-left:18px; margin: 8px 0 0">
+              <li>安全・安心の運営とルール</li>
+              <li>週次の交流会／イベント</li>
+              <li>作品発表・相互フィードバック</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="pill">参加手順</div>
+        <h2 style="margin:10px 0 18px">3ステップで参加</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>1. 参加ボタンを押す</h3>
+            <p class="muted">上の「Discordに参加する」をクリック。別タブで招待ページが開きます。</p>
+          </div>
+          <div class="card">
+            <h3>2. 自己紹介</h3>
+            <p class="muted">入室後は <strong>#自己紹介</strong> で一言！好きなゲームや作品を添えると会話が広がります。</p>
+          </div>
+          <div class="card">
+            <h3>3. ルール確認＆ロール取得</h3>
+            <p class="muted">ルールに同意し、<strong>#ロール選択</strong> で自分に合うロールを付与しましょう。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="channels">
+      <div class="container">
+        <div class="pill">チャンネル紹介</div>
+        <h2 style="margin:10px 0 18px">主なチャンネル</h2>
+        <div class="card" style="padding:0">
+          <table class="table">
+            <thead><tr><th>チャンネル</th><th>用途 / 説明</th></tr></thead>
+            <tbody>
+              <tr><td><code>#アナウンス</code></td><td>公式からのお知らせ。まずはここをフォロー！</td></tr>
+              <tr><td><code>#雑談</code></td><td>気軽に会話する場。話題はなんでもOK。</td></tr>
+              <tr><td><code>#自己紹介</code></td><td>はじめましてはこちらで。簡単な自己紹介からどうぞ。</td></tr>
+              <tr><td><code>#イベント情報</code></td><td>交流会・企画・コラボの情報をまとめて案内。</td></tr>
+              <tr><td><code>#作品発表</code></td><td>スクショ／動画／音源など、あなたの制作物を披露。</td></tr>
+              <tr><td><code>#募集-コラボ</code></td><td>メンバー募集・プロジェクト募集に活用。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rules">
+      <div class="container">
+        <div class="pill">サーバールール</div>
+        <h2 style="margin:10px 0 18px">安心して楽しむために</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>基本ポリシー</h3>
+            <ul class="muted" style="padding-left:18px">
+              <li>相手へのリスペクトを最優先</li>
+              <li>差別・ハラスメント・攻撃的な言動の禁止</li>
+              <li>法律・規約に反する共有や誘導の禁止</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>コンテンツと配慮</h3>
+            <ul class="muted" style="padding-left:18px">
+              <li>ネタバレは専用タグ or チャンネルへ</li>
+              <li>宣伝は所定のチャンネルのみ</li>
+              <li>著作権と出典の明記・尊重</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>安全と運営</h3>
+            <ul class="muted" style="padding-left:18px">
+              <li>個人情報の保護／DMの無断公開禁止</li>
+              <li>モデレーターの指示に従うこと</li>
+              <li>配信・録画時は関係者へ周知と同意</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="pill">スタッフ</div>
+        <h2 style="margin:10px 0 18px">運営メンバー</h2>
+        <div class="staff">
+          <div class="row">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <strong>やまと</strong> — Founder / Admin
+              <p class="muted" style="margin:6px 0 0">「コミュニティが安心して楽しめる“街づくり”を！」</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <strong>モデレーターA</strong> — Moderator
+              <p class="muted" style="margin:6px 0 0">初参加の方の案内担当です。気軽に声かけてね！</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <strong>モデレーターB</strong> — Moderator
+              <p class="muted" style="margin:6px 0 0">イベント運営をサポートします。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="pill">FAQ</div>
+        <h2 style="margin:10px 0 18px">よくある質問</h2>
+        <details>
+          <summary>参加は無料ですか？</summary>
+          <p class="muted">はい、無料です。気軽に参加してください。</p>
+        </details>
+        <details>
+          <summary>配信しても大丈夫？</summary>
+          <p class="muted">事前にチャンネルで周知し、関係者の同意を得てください。</p>
+        </details>
+        <details>
+          <summary>荒らし・迷惑行為を見つけたら？</summary>
+          <p class="muted">スクショを添えて <strong>@Mod</strong> をメンション、またはサーバー内の指定フォームから連絡してください。</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© 2025 Plot City</div>
+      <div style="margin-top:8px">
+        <a href="https://discord.gg/dywrBQWP" target="_blank" rel="noopener" class="muted">Discord参加</a> ・
+        <a href="#" class="muted">利用規約</a> ・
+        <a href="#" class="muted">プライバシー</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Copy invite link
+    document.getElementById('copyBtn')?.addEventListener('click', () => {
+      const url = document.getElementById('invite')?.textContent?.trim() || 'https://discord.gg/dywrBQWP';
+      navigator.clipboard.writeText(url).then(() => {
+        const btn = document.getElementById('copyBtn');
+        const original = btn.textContent;
+        btn.textContent = 'コピーしました！';
+        btn.style.opacity = '0.9';
+        setTimeout(()=>{ btn.textContent = original; btn.style.opacity = '1'; }, 1400);
+      });
+    });
+  </script>
+</body>
+</html>
